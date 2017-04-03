@@ -42,6 +42,7 @@ def main():
         else:
             print("{}".format(i), end="")
     print("\n", end="")
+    return 0
 
 
 

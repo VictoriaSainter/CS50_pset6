@@ -9,7 +9,6 @@ def main():
         return 1
     else:
         k = int(sys.argv[1])
-        print("{}".format(k))
 
     k = k % 26
 
@@ -21,7 +20,6 @@ def main():
         asciiCode = ord(i)
         j = 0
 
-        #print(asciiCode)
 
         #if uppercase char
         if asciiCode >= 65 and asciiCode <= 90:

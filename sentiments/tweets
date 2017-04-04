@@ -1,11 +1,6 @@
 #!/usr/bin/env python3
 
 
-
-
-
-
-
 import sys
 import os
 
@@ -14,21 +9,23 @@ from analyzer import Analyzer
 from termcolor import colored
 
 def main():
-    
+
     # absolute paths to lists
     positives = os.path.join(sys.path[0], "positive-words.txt")
     negatives = os.path.join(sys.path[0], "negative-words.txt")
-    
+
     # instantiate analyzer
     analyzer = Analyzer(positives, negatives)
 
 # TODO accepts one and only one command-line argument, the screen name for a user on Twitter,
     if len(sys.argv) != 2:
-        sys.exit("Usage: ./tweets username")
+        sys.exit("Usage: ./tweets @screen_name")
     else:
         userName = sys.argv[1]
         # TODO queries Twitter’s API for a user’s most recent 50 tweets,
         allTweets = get_user_timeline(userName)
+        if type(allTweets) is not list:
+            sys.exit("Usage: ./tweets @screen_name")
 
     # TODO analyzes the sentiment of each of those tweets, and
     for tweet in allTweets:
@@ -40,7 +37,7 @@ def main():
             print(colored("{} {}", "red").format(score, tweet))
         else:
             print(colored("{} {}", "yellow").format(score, tweet))
-        
+
 
 
 

@@ -28,7 +28,7 @@ def main():
             sys.exit("Usage: ./tweets @screen_name")
 
     # TODO analyzes the sentiment of each of those tweets, and
-    for tweet in allTweets:
+    for tweet in allTweets[:50]:
         score = analyzer.analyze(tweet)
         # TODO outputs each tweet’s score and text, colored in green if positive, red if negative, and yellow otherwise.
         if score > 0.0:
